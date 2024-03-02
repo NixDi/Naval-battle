@@ -1,4 +1,5 @@
 #МОРСКОЙ БОЙ
+"""Create new branch"""
 from random import randint
 
 accept_board = False

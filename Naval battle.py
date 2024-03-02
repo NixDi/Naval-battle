@@ -2,15 +2,15 @@
 from random import randint
 
 accept_board = False
-input_board = input('Давай настроим поле.\nВведи число от 5 до 25 (это будет ширина и высота поля):')
+input_board = input("Let's set up the board.\nEnter a number from 5 to 25 (this will be the width and height of the board):")
 print(input_board)
 while accept_board is False:
     if int(input_board) >= 5 and int(input_board) <= 25:
         accept_board = True
     else:
         if int(input_board) < 5 or int(input_board) > 25:
-                print("Будь внимательнее!")
-                input_board = input("Неоходимо ввести число ОТ 5 ДО 25:")
+                print("Be more careful!")
+                input_board = input("You must enter a number FROM 5 TO 25:")
         
 board = []
 
@@ -35,32 +35,32 @@ ship_col = random_col(board)
 print_board(board)
 #print(ship_row)
 #print(ship_col)
-print("У тебя " + str(input_board) + " попыток!")
+print("You have " + str(input_board) + " attempts!")
 
 for turn in range(int(input_board) + 1):
-    print("Попытка " + str(turn) + "/" + str(input_board) + "! Удачи!)")
-    guess_row = int(input("Угадай строку: "))
-    guess_col = int(input("Угадай столбик: "))
+    print("Attempts " + str(turn) + "/" + str(input_board) + "! Good luck!)")
+    guess_row = int(input("Guess the row: "))
+    guess_col = int(input("Guess the col: "))
 
     if guess_row == ship_row and guess_col == ship_col:
-        print("Поздравляю! Ты потопил мой корабль!)")
+        print("Congratulations! You sank my ship!)")
         break
     else:
         if guess_row not in range(int(input_board)) or guess_col not in range(int(input_board)):
-            print("Ты ударил мимо нашего моря!")
+            print("Oops, that's not even in the ocean!")
         elif board [guess_row] [guess_col] == "X":
-            print("В это место ты уже стрелял! Зря только снаряд потратил...")
+            print("You've already shot at this place! It was a waste of a shell...")
         else:
             if turn < int(input_board) / 3:
-                print("Извини, но ты промазал")
+                print("I'm sorry, but you missed")
             elif turn < int(input_board) / 2:
-                print("Мимо!")
+                print("Missed!")
             elif turn < int(input_board):
-                print("Целься лучше!")
+                print("Aim better!")
             else:
-                print("Мазила! Игра окончена!")
+                print("It was the last shot! Game over!")
             if turn < int(input_board):
-                print("Попытка", turn + 1)
+                print("Attempts", turn + 1)
             board [guess_row] [guess_col] = "X"
             if turn < int(input_board):
                 print_board(board)

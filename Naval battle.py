@@ -1,4 +1,5 @@
 #МОРСКОЙ БОЙ
+
 from random import randint
 
 accept_board = False

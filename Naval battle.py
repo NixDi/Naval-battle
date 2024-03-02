@@ -1,4 +1,4 @@
-#МОРСКОЙ БОЙ
+#Naval Battle
 
 from random import randint
 
@@ -18,11 +18,8 @@ board = []
 for i in range(int(input_board)):
     board.append(["O"] * int(input_board))
 
-
 def print_board(board):
     for row in board:
-        #string = ' '.join(row)
-        #new_board = string.replace("'", "").replace(",", "")
         print (' '.join(row))
 
 def random_row(board_in):
